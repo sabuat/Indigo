@@ -36,22 +36,66 @@ function translatePage(language) {
     }
 }
 
-// // Hide/Show Navbar Toggler Button
-// document.addEventListener('DOMContentLoaded', function () {
-//     const navbarToggler = document.querySelector('.navbar-toggler');
-//     const navbarCollapse = document.querySelector('.navbar-collapse');
+document.addEventListener('DOMContentLoaded', function () {
+  const logoImg = document.getElementById('logo-img');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
 
-//     if (navbarCollapse) {
-//         navbarCollapse.addEventListener('show.bs.collapse', function () {
-//             if (navbarToggler) {
-//                 navbarToggler.style.display = 'none'; // Hide the toggler button
-//             }
-//         });
+  if (navbarCollapse) {
+    navbarCollapse.addEventListener('show.bs.collapse', function () {
+      // Change logo to "open" version
+      logoImg.src = './images/Logo-Open.png';
+    });
 
-//         navbarCollapse.addEventListener('hide.bs.collapse', function () {
-//             if (navbarToggler) {
-//                 navbarToggler.style.display = 'block'; // Show the toggler button
-//             }
-//         });
-//     }
+    navbarCollapse.addEventListener('hide.bs.collapse', function () {
+      // Change logo back to default version
+      logoImg.src = './images/Logo.png';
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize PC Carousel
+  const carouselPC = new bootstrap.Carousel(document.getElementById('carouselPC'), {
+      interval: 5000, // 3 seconds
+      wrap: true // Enable looping
+  });
+
+  // Initialize Mobile Carousel
+  const carouselMobile = new bootstrap.Carousel(document.getElementById('carouselMobile'), {
+      interval: 5000, // 3 seconds
+      wrap: true // Enable looping
+  });
+});
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const carousel = document.getElementById('carouselExample');
+//   const carouselItems = carousel.querySelectorAll('.carousel-item');
+//   const pcItems = carousel.querySelectorAll('.pc-item');
+//   const mobileItems = carousel.querySelectorAll('.mobile-item');
+
+//   // Function to set the active item based on screen size
+//   function setActiveItem() {
+//       // Remove active class from all items
+//       carouselItems.forEach(item => item.classList.remove('active'));
+
+//       // Check screen width and set active class accordingly
+//       if (window.innerWidth >= 768) { // PC view
+//           pcItems[0].classList.add('active'); // Activate the first PC item
+//       } else { // Mobile view
+//           mobileItems[0].classList.add('active'); // Activate the first mobile item
+//       }
+//   }
+
+//   // Initialize the active item on page load
+//   setActiveItem();
+
+//   // Reinitialize the active item on window resize
+//   window.addEventListener('resize', setActiveItem);
+
+//   // Initialize the Bootstrap carousel
+//   const myCarousel = new bootstrap.Carousel(carousel, {
+//       interval: 3000, // 3 seconds
+//       wrap: true // Enable looping
+//   });
 // });
